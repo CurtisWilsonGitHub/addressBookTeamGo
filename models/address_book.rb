@@ -60,6 +60,21 @@ class AddressBook
         end
         return nil
     end
+
+    def interative_search(name)
+
+        count = 0
+
+        while count <= entries.length - 1
+            if name == entries[count].name
+                return entries[count]
+            end
+            count +=1
+        end
+
+        return nil
+
+    end
    
 end
 
