@@ -15,10 +15,15 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
         puts "5 - View Entry Number n"
+        puts "nuke - Delete current AddressBook"
         puts "6 - Exit"
         print "enter your selection: "
+        
+        selection = gets.chomp
 
-        selection = gets.to_i
+        if selection != "nuke"
+            selection = selection.to_i
+        end
         
         case selection
             when 1
@@ -44,6 +49,12 @@ class MenuController
             when 6
                 puts "Good-Bye!"
                 exit(0)
+
+            when "nuke"
+                system "clear"
+                nuke_addressbook
+                main_menu
+
             else
                 system "Clear"
                 puts "Sorry, that is not a valid input"
@@ -99,13 +110,16 @@ class MenuController
 
         
      def view_entry_number
-            system "clear"
-            puts "What is the entry number?"
+        system "clear"
+        puts "What is the entry number?"
 
-            number = gets.chomp.to_i - 1
-            puts address_book.entries.at(number)
+        number = gets.chomp.to_i - 1
+        puts address_book.entries.at(number)
     end
 
+    def nuke_addressbook
+        address_book.entries.clear
+    end
             
     
 
@@ -139,7 +153,7 @@ class MenuController
 
     def read_csv
         
-        print "Enter CSV file to import"
+        print "Enter CSV file to import: "
         file_name = gets.chomp
 
         if file_name.empty?
