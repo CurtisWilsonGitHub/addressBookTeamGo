@@ -89,7 +89,12 @@ class MenuController
             puts "What is the entry number?"
 
             number = gets.chomp.to_i - 1
-            puts address_book.entries.at(number)
+            
+            if address_book.entries.at(number).nil?
+                puts "Please select a valid entry number"
+            else   
+                puts address_book.entries.at(number)
+            end
     end
 
             
