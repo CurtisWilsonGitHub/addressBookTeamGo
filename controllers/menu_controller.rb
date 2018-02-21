@@ -56,8 +56,8 @@ class MenuController
                 main_menu
 
             else
-                system "Clear"
-                puts "Sorry, that is not a valid input"
+                system "clear"
+                puts "Sorry, that is not a valid input. Please selection one of the options 1 - 6, or type in 'nuke' to delete all entries."
                 main_menu
         end
     end
@@ -149,7 +149,7 @@ class MenuController
                 puts "#{selection} is not a valid input"
                 entry_submenu(entry)
          end
-     end
+    end
 
     def read_csv
         
